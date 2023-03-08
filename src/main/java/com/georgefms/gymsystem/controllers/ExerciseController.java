@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class ExerciseController {
 
-    //TODO Get All
+    /*
+    TODO Get All
+    TODO get by ID
+    TODO Post
+    TODO Put
+    TODO Delete
+    */
 
-    //TODO get by ID
-
-    //TODO Post
-
-    //TODO Put
-
-    //TODO Delete
 }
