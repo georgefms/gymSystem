@@ -1,6 +1,8 @@
 package com.georgefms.gymsystem.init;
 
+import com.georgefms.gymsystem.models.Exercise;
 import com.georgefms.gymsystem.models.User;
+import com.georgefms.gymsystem.repositories.ExerciseRepository;
 import com.georgefms.gymsystem.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +14,8 @@ import javax.transaction.Transactional;
 public class StartApplication implements CommandLineRunner {
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private ExerciseRepository exerciseRepository;
     @Transactional
     @Override
     public void run(String... args) throws Exception {
@@ -33,5 +37,11 @@ public class StartApplication implements CommandLineRunner {
             user.getRoles().add("USERS");
             repository.save(user);
         }
+        exerciseRepository.deleteAll();
+        Exercise e = new Exercise();
+        e.setName("Supino Reto");
+        e.setMuscularGroup("Peitoral");
+        e.setExample("Exercicio com barra no banco 180 graus");
+        exerciseRepository.save(e);
     }
 }
